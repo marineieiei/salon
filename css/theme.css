@@ -1,0 +1,114 @@
+/* theme.css — объединённая тема Geometric Minimal Pink + ваши компоненты */
+
+/* === Ссылки === */
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Header & Footer === */
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}
+/* === Hero-блок === */
+.hero {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: var(--space-lg) var(--space);
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero .tagline {
+  font-size: 1.25rem;
+  margin-bottom: var(--space);
+}
+.hero .subtag {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* === Обёртка-контейнер === */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+/* === Кнопки === */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  padding: var(--space) 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  border: none;
+  font-family: var(--font-body);
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 2px solid var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: #e0267f;
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border: 2px solid var(--color-secondary);
+}
+.btn-secondary:hover {
+  background-color: #ffb1cf;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* === Карточки === */
+.card {
+  background: #fff;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: var(--space);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* === Геометрические акценты === */
+.geometry-triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid var(--color-primary);
+}
+.section-diagonal {
+  background-color: var(--color-secondary);
+  clip-path: polygon(0 0,100% 10%,100% 100%,0% 90%);
+  padding: var(--space-lg);
+}
+
+/* === Типографика === */
+body {
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

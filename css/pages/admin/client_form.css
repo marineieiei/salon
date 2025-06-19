@@ -1,0 +1,118 @@
+/* 1. Общий контейнер */
+.client-form {
+  max-width: 400px !important;
+  margin: 2rem auto;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* 2. Заголовок */
+.client-form h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  text-align: left;
+}
+
+/* 3. Метки и поля */
+.client-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+.client-form input[type="text"],
+.client-form input[type="tel"],
+.client-form input[type="password"],
+.client-form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: .5rem;
+  margin-top: .5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* 4. Кнопки */
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: .5rem;
+}
+.buttons-row .btn {
+  flex: 1;
+}
+.buttons-row .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* 5. Ошибки */
+.alert-error {
+  padding: .75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  background: #ffe0e6;
+  color: #b00020;
+  border: 1px solid #b00020;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+}
+
+/* Успешное уведомление */
+.alert-success {
+  background-color: #e6ffe6;
+  color: #007a36;
+  border-color: #007a36;
+}
+
+/* Ошибка */
+.alert-error {
+  background-color: #ffe0e6;
+  color: #b00020;
+  border-color: #b00020;
+}
+
+/* Предупреждение */
+.alert-warning {
+  background-color: #fff4e5;
+  color: #b36b00;
+  border-color: #b36b00;
+}
+
+/* Информационное уведомление */
+.alert-info {
+  background-color: #e6f0ff;
+  color: #0044b3;
+  border-color: #0044b3;
+}
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}

@@ -1,0 +1,144 @@
+/* 1. Контейнер */
+.settings-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* Заголовки */
+.settings-page h1,
+.settings-page h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* Метки и поля */
+.settings-form label,
+.admin-form   label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="tel"],
+.settings-form input[type="password"], /* добавлено для пароля */
+.settings-form textarea,
+.admin-form   input[type="tel"],
+.admin-form   input[type="password"] {
+  width: 100%;
+  padding: .5rem;
+  margin-top: .5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Подсказка под паролем */
+.settings-form label small,
+.admin-form label small {
+  display: block;
+  margin-top: .25rem;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+/* Кнопки */
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: .5rem;
+}
+.buttons-row .btn {
+  flex: 1;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+}
+
+/* Список админов */
+.admin-list {
+  list-style: none;
+  padding: 0;
+}
+.admin-list li {
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--color-primary-light);
+}
+
+/* Модалка */
+.modal {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Уведомления */
+.alert {
+  margin-bottom: 1rem;
+  padding: .75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.alert-success {
+  background-color: #e6ffe6;
+  color: #007a36;
+  border-color: #007a36;
+}
+.alert-error {
+  background-color: #ffe0e6;
+  color: #b00020;
+  border-color: #b00020;
+}
+
+/* Навигация */
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}

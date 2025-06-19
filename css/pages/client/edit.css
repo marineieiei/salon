@@ -1,0 +1,73 @@
+/* css/pages/client/edit.css */
+
+.edit-appointment .step-form {
+  max-width: 400px;
+  margin: 0 auto;              /* центрируем форму */
+}
+
+.edit-appointment .step-form label {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+.edit-appointment .step-form input[type="date"],
+.edit-appointment .step-form select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Кнопки */
+.edit-appointment .buttons-row {
+  margin-top: 1.5rem;
+  display: flex;               /* выравниваем кнопки по центру */
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.edit-appointment .buttons-row .btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+}
+
+.edit-appointment .buttons-row .btn-primary {
+  background: #fff;
+  color: var(--color-primary);
+  border: 1px solid  #FF2D8A;
+}
+
+.edit-appointment .buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* Выравнивание заголовка по центру */
+header {
+  background: var(--color-primary-light);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+header nav a.active {
+  color: var(--color-secondary);
+}
+header nav a:hover {
+  opacity: .8;
+}

@@ -1,0 +1,77 @@
+/* css/pages/master/about_me.css */
+
+/* 1. Основной контейнер */
+.about-me {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* Заголовок */
+.about-me h1 {
+  font-family: var(--font-heading);
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Флекс-контейнер фото + информация по центру */
+.about-me-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: center;       /* выравнивание по центру по высоте */
+  justify-content: center;   /* по центру по ширине */
+}
+
+/* Фото мастера */
+.about-me-photo {
+  flex-shrink: 0;
+  max-width: 200px;          /* уменьшили ширину */
+}
+.about-me-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* Блок с деталями */
+.about-me-info {
+  flex: 1;
+}
+.about-me-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-text);  /* основной текст чёрный */
+  font-weight: 300;          /* тонкий шрифт */
+  line-height: 1.5;          /* межстрочный интервал */
+}
+.about-me-info strong {
+  font-weight: 700;
+  color: var(--color-primary); /* розовый цвет для меток */
+  margin-right: 0.5rem;
+}
+
+
+header {
+  background: var(--color-primary-light);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+header nav a.active {
+  color: var(--color-secondary);
+}
+header nav a:hover {
+  opacity: .8;
+}
+

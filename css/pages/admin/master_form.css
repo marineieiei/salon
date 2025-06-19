@@ -1,0 +1,149 @@
+/* css/pages/admin/master_form.css */
+
+/* 1. Общий контейнер */
+.master-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* 2. Заголовок */
+.master-form h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  text-align: left;
+}
+
+/* 3. Метки */
+.master-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/* 4. Стандартный инпут (текст, тел, файл) */
+.master-form input[type="text"],
+.master-form input[type="tel"],
+.master-form input[type="file"] {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+/* 6. Рабочие дни (fieldset) */
+.days-fieldset {
+  margin-top: 1.5rem;
+  border: 1px solid var(--color-primary);
+  padding: 0.75rem;
+  border-radius: 4px;
+  max-width: 400px;
+}
+.days-fieldset legend {
+  font-weight: 700;
+}
+.days-fieldset label {
+  display: inline-block;
+  margin-right: 1rem;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+/* 7. Время работы */
+.time-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.time-row label {
+  font-weight: 700;
+  font-family: inherit;
+}
+.time-row input[type="time"] {
+  padding: 0.3rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* 8. Кнопки */
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.buttons-row .btn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.buttons-row .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+.buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+}
+
+/* 9. Ошибки */
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+.alert-error {
+  background: #ffe0e6;
+  color: #b00020;
+  border: 1px solid #b00020;
+}
+
+/* 10. Отступы внутри формы для согласованности */
+.master-form form > label + input,
+.master-form form > .password-wrapper,
+.master-form form > .days-fieldset,
+.master-form form > .time-row {
+  box-sizing: border-box;
+}
+.current-photo {
+  display: block;
+  margin: 0.5rem 0;
+  max-width: 200px;   /* или 150px, как вам больше нравится */
+  height: auto;
+}
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}

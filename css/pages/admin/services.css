@@ -1,0 +1,164 @@
+/* 1. Контейнер */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* 2. Навигация админа */
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}
+
+/* 3. Заголовок */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  text-align: left;
+}
+
+/* 4. Действия: кнопка + поиск */
+.services-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.services-actions .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.services-actions .search-filter {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.search-filter input[type="text"] {
+  padding: .5rem .75rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-size: .9rem;
+  width: 180px;
+}
+.search-filter button {
+  padding: .5rem 1rem;
+  font-size: .9rem;
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 4px;
+}
+
+/* 5. Таблица услуг */
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.services-table th,
+.services-table td {
+  padding: .75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-primary-light);
+  font-size: .95rem;
+}
+.services-table thead th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 6. Кнопки-иконки действий */
+.btn-action {
+  margin-right: .5rem;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.btn-action:hover {
+  color: var(--color-secondary);
+}
+
+/* 7. Пустая таблица */
+.no-records {
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* 8. Универсальные кнопки */
+.btn {
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+}
+.btn:hover {
+  opacity: .8;
+}
+.alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: 1px solid transparent; /* ключевой момент! */
+  font-family: var(--font-body);
+}
+
+/* Успешное уведомление */
+.alert-success {
+  background-color: #e6ffe6;
+  color: #007a36;
+  border-color: #007a36;
+}
+
+/* Ошибка */
+.alert-error {
+  background-color: #ffe0e6;
+  color: #b00020;
+  border-color: #b00020;
+}
+
+/* Предупреждение */
+.alert-warning {
+  background-color: #fff4e5;
+  color: #b36b00;
+  border-color: #b36b00;
+}
+
+/* Информационное уведомление */
+.alert-info {
+  background-color: #e6f0ff;
+  color: #0044b3;
+  border-color: #0044b3;
+}

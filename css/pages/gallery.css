@@ -1,0 +1,118 @@
+/* css/pages/gallery.css */
+
+/* 0. Переменные (если они у вас есть в variables.css) */
+/* --font-body, --radius, --color-primary, --space, --space-lg */
+
+/* 1. Сброс и базовые стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-body);
+  color: #333;
+  line-height: 1.4;
+}
+
+/* 2. Хедер */
+header {
+  background: var(--color-primary);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 0.75rem;
+}
+header nav a:hover {
+  opacity: 0.8;
+}
+
+/* 3. Hero-секция */
+.hero {
+  /* Подставьте свой путь к картинке или укажите через inline-стили */
+  background: url("../images/hero.jpg") no-repeat center center;
+  background-size: cover;
+  height: calc(40vh - 64px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #aa2b5e;
+  padding: 0 1rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero .tagline {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+.hero .subtag {
+  font-size: 1rem;
+}
+
+/* 4. Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space);
+  max-width: 800px;
+  margin: var(--space-lg) auto;
+  justify-content: center;
+}
+.gallery-item {
+  position: relative;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  /* фиксируем высоту блока, чтобы фон-картинка знала предел */
+  height: 200px;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+/* Картинка на фоне блока */
+.gallery-item img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Плашка с ценой */
+.gallery-item .price-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 5. Футер */
+footer {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: var(--space-lg);
+}
+
+.container .subtitle {
+  color: gray;      /* нужный вам цвет */
+  font-size: 1.1rem;   /* по желанию */
+  margin-top: 0.5rem;  /* отступ сверху */
+}

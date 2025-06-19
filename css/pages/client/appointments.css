@@ -1,0 +1,194 @@
+/* css/pages/admin/appointments.css */
+
+/* 1. Контейнер и отступы */
+.container {
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2. Секция действий (кнопка + поиск) */
+.appointments-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+.appointments-actions .btn-primary {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* Поиск */
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.search-filter input[type="text"] {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: 1px solid var(--pink);
+  border-radius: 4px;
+  width: 200px;
+}
+.search-filter select {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: 1px solid var(--pink);
+  border-radius: 4px;
+  min-width: 120px;
+}
+
+/* 3. Скрываем заголовок таблицы если не нужен */
+.appointments-title {
+  display: none;
+}
+
+/* 4. Таблица */
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  border: none;
+}
+.appointments-table thead {
+  display: none;
+}
+.appointments-table th,
+.appointments-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--pink-light);
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* 5. Приоритет ширины колонок */
+.appointments-table td:nth-child(1),
+.appointments-table th:nth-child(1) { width: 120px; }
+.appointments-table td:nth-child(2),
+.appointments-table th:nth-child(2) { width: 80px; }
+.appointments-table td.price,
+.appointments-table th.price { width: 100px; }
+.appointments-table td.wide,
+.appointments-table th.wide {
+  min-width: 180px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+/* 6. Статусы строк */
+.appointments-table tr.past td {
+  color: var(--color-text-secondary);
+}
+.appointments-table tr.today td {
+  background: var(--pink-light);
+}
+.appointments-table tr.future td {
+  background: rgba(255,45,138,0.1);
+}
+
+/* 7. Иконки действий */
+.btn-action {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 4px;
+  margin: 0 4px;
+  color: var(--pink);
+  text-decoration: none;
+}
+.btn-action:hover {
+  color: var(--pink-light);
+}
+
+/* 8. Сообщение об отсутствии записей */
+.no-records {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  padding: 16px 0;
+}
+
+/* 9. Заголовок группы (день недели) */
+.day-group {
+  margin-bottom: 1rem;
+}
+.day-header td {
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+/* 10. Ссылка на мастера */
+.master-link {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.master-link:hover {
+  text-decoration: underline;
+}
+
+/* 11. Модалка */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.modal-body img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+.modal-body h2 {
+  margin: 0 0 0.5rem;
+}
+.modal-body p {
+  margin: 0.25rem 0;
+}
+
+/* Навигация в header */
+header {
+  background: var(--color-primary-light);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+header nav a.active {
+  color: var(--color-secondary);
+}
+header nav a:hover {
+  opacity: .8;
+}

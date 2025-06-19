@@ -1,0 +1,30 @@
+/* /salon/css/variables.css */
+/* =========================
+   Ваши исходные переменные
+   ========================= */
+:root {
+  /* — Типографика — */
+  --font-body:     'Raleway', sans-serif;
+  --font-heading:  'Soledago', sans-serif;
+
+  /* — Отступы — */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space:    1rem;
+  --space-lg: 2rem;
+
+  /* — Радиусы — */
+  --radius: 0.5rem;
+
+  /* — Цвета — */
+  --color-bg:            #ffffff;          /* фон страницы */
+  --color-text:          #333333;          /* основной текст */
+  --color-text-secondary:#333333;          /* второстепенный текст (заголовки групп) */
+
+  --color-primary:       #FF2D8A;          /* основной ярко-розовый */
+  --color-secondary:     #FFB1CF;          /* более светлый розовый */
+
+  /* дополнительные оттенки */
+  --pink:         var(--color-primary);
+  --pink-light:   rgba(255,45,138,0.1);    /* для фоновых заливок будущих дней */
+}

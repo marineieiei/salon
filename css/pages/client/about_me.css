@@ -1,0 +1,102 @@
+
+.about-me {
+  margin: 2rem auto;
+  max-width: 400px;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+.about-me h1 {
+  font-family: var(--font-heading);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+
+.about-me label {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+.about-me input[type="text"],
+.about-me input[type="tel"],
+.about-me textarea {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttons-row .btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  flex: 1;
+}
+.btn-primary{
+  background-color: white;
+  color:var(--color-primary);
+}
+.btn-primary:hover{
+  background-color: white;
+  color:var(--color-primary);
+}
+.buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  font-family: var(--font-body) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.alert-error {
+  background: #ffe0e6;
+  color: #b00020;
+  border: 1px solid #b00020;
+}
+.alert-success {
+  background: #e6ffe6;
+  color: #007a36;
+  border: 1px solid #007a36;
+}
+header {
+  background: var(--color-primary-light);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+header nav a.active {
+  color: var(--color-secondary);
+}
+header nav a:hover {
+  opacity: .8;
+}

@@ -1,0 +1,127 @@
+/* css/pages/admin/dashboard.css */
+
+/* Корректируем контейнерную ширину для дашборда */
+.container.dashboard {
+  max-width: 1000px;      /* чуть больше, чем у обычного container */
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Статистика в шапке */
+.stats-grid {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.stat-card h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--color-primary);
+}
+.stat-card p {
+  margin: 0.5rem 0 0;
+  color: var(--color-text);
+}
+
+/* График */
+#appointments-chart {
+  width: 100% !important;
+  max-width: 100%;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+/* Таблица отчетов */
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.reports-table th,
+.reports-table td {
+  padding: 12px 8px;
+  border: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: middle;
+}
+.reports-table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.reports-table td {
+  background: #fff;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* Колонки с фиксированной и растягивающейся шириной */
+.reports-table th.date,
+.reports-table td.date {
+  width: 120px;
+}
+.reports-table th.master,
+.reports-table td.master {
+  width: 180px;
+}
+.reports-table th.client,
+.reports-table td.client {
+  width: 180px;
+}
+.reports-table th.service,
+.reports-table td.service {
+  min-width: 200px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+.reports-table th.contra,
+.reports-table td.contra {
+  min-width: 220px;
+}
+
+/* Статусы */
+.reports-table tr.past td {
+  color: var(--color-muted);
+}
+.reports-table tr.today td {
+  background: var(--color-secondary-light);
+}
+.reports-table tr.future td {
+  background: var(--color-accent-light);
+}
+
+/* Ссылки на мастера/клиента */
+.master-link,
+.client-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.master-link:hover,
+.client-link:hover {
+  text-decoration: underline;
+}
+
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}

@@ -1,0 +1,85 @@
+/* css/pages/new-appointment.css */
+
+/* Центрируем форму */
+.booking .step-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.booking .step-form label {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+.booking .step-form select,
+.booking .step-form input[type="date"] {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Кнопки выравниваем по центру */
+.booking .buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.booking .buttons-row .btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+}
+.booking .buttons-row .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.booking .buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* Ссылка назад */
+.back-link {
+  display: block;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background: var(--color-primary-light);
+  padding: 1rem 0;
+}
+header nav {
+  text-align: center;
+}
+header nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+header nav a.active {
+  color: var(--color-secondary);
+}
+header nav a:hover {
+  opacity: .8;
+}

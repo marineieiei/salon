@@ -1,0 +1,125 @@
+/* css/pages/register.css */
+
+/* 1. Обёртка формы */
+.registration-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 0 16px;
+  font-family: var(--font-body);
+}
+
+/* 2. Заголовок */
+.registration-form h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  text-align: left;
+}
+
+/* 3. Метки */
+.registration-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"],
+.registration-form input[type="password"],
+.registration-form input[type="date"],      /* добавили стиль для date */
+.registration-form textarea {               /* добавили стиль для textarea */
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: var(--color-text);
+}
+
+/* Дополнительно: управляем размером textarea */
+.registration-form textarea {
+  min-height: 6rem;      /* или любое другое желаемое */
+  resize: vertical;      /* разрешаем только вертикальное изменение размера */
+}
+/* 5. Кнопки */
+.registration-form .buttons-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.registration-form .buttons-row .btn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+.registration-form .buttons-row .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.registration-form .buttons-row .btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* 6. Сообщения об ошибках и успехе */
+.registration-form .alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+}
+.registration-form .alert-error {
+  background-color: #ffe0e6;
+  color: #b00020;
+  border-color: #b00020;
+}
+.registration-form .alert-success {
+  background-color: #e6ffe6;
+  color: #007a36;
+  border-color: #007a36;
+}
+
+/* 7. Ссылки */
+.registration-form .links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.registration-form .links a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.registration-form .links a:hover {
+  text-decoration: underline;
+}
+.admin-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.admin-nav a {
+  margin: 0 .75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.admin-nav a.active {
+  color: var(--color-secondary);
+}
+.admin-nav a:hover {
+  opacity: .8;
+}
