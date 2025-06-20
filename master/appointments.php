@@ -17,7 +17,6 @@ switch ($filter) {
   default:           $start = new DateTime('first day of this month'); $end = new DateTime('last day of this month');
 }
 $end->setTime(23,59,59);
-
 $sql = "
   SELECT 
     a.start_datetime,
@@ -48,7 +47,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// группируем по дню
 $groups = [];
 foreach ($rows as $r) {
   $day = (new DateTime($r['start_datetime']))->format('Y-m-d');
@@ -93,7 +91,6 @@ foreach ($rows as $r) {
         </select>
       </form>
     </div>
-
     <?php if (empty($groups)): ?>
       <p class="no-records">Записей не найдено.</p>
     <?php else: ?>
@@ -138,6 +135,7 @@ foreach ($rows as $r) {
       </table>
     <?php endif; ?>
   </main>
-
 </body>
 </html>
+
+

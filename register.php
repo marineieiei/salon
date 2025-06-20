@@ -1,6 +1,5 @@
 <?php
-// salon/register.php
-// Запускаем сессию, если ещё не запущена
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -17,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password    = $_POST['password'] ?? '';
     $confirmPass = $_POST['confirm_password'] ?? '';
 
-    // 1) Проверка имени: минимум два слова
+ 
     if (!preg_match('/^\S+\s+\S+/', $name)) {
         $error = 'Имя должно состоять минимум из двух слов.';
     }
@@ -25,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     elseif (!preg_match('/^0\d{8}$/', $phone)) {
         $error = 'Телефон должен начинаться с 0 и содержать 8 цифр.';
     }
-    // 3) Проверка уникальности телефона
     else {
         $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE phone = ?");
         $stmt->execute([$phone]);
@@ -69,6 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="/salon/css/pages/client/register.css"/>
 </head>
 <body>
+    <header>
+    <nav>
+      <a href="index.html">Главная</a> |
+      <a href="login.php">Войти</a> |
+      <a href="register.php">Регистрация</a>
+    </nav>
+  </header>
   <main class="container registration-form">
     <h1>Регистрация клиента</h1>
 

@@ -1,5 +1,4 @@
 <?php
-// master/about.php — страница «Обо мне» для мастера (без редактирования)
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';
@@ -58,9 +57,6 @@ $photoPath = $me['photo_path'] ? "/salon/{$me['photo_path']}" : "/salon/img/avat
       <div class="about-me-info">
         <p><strong>Имя:</strong> <?= htmlspecialchars($me['name']) ?></p>
         <p><strong>Телефон:</strong> <?= htmlspecialchars($me['phone']) ?></p>
-        <?php if (!empty($me['diseases'])): ?>
-          <p><strong>Противопоказания:</strong> <?= htmlspecialchars($me['diseases']) ?></p>
-        <?php endif; ?>
         <p><strong>Регистрация:</strong> <?= date('Y-m-d', strtotime($me['created_at'])) ?></p>
         <p><strong>За этот месяц заработано:</strong> <?= htmlspecialchars($stats['total']) ?> MDL</p>
         <p><strong>Записей за месяц:</strong> <?= htmlspecialchars($stats['cnt']) ?></p>

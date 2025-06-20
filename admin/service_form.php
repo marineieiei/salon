@@ -1,5 +1,4 @@
 <?php
-// salon/admin/service_form.php
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';
@@ -9,7 +8,6 @@ requireRole(1);
 $id     = isset($_GET['id']) ? (int)$_GET['id'] : null;
 $isEdit = (bool)$id;
 $error  = '';
-// при редактировании — подгружаем
 if ($isEdit) {
     $stmt = $pdo->prepare("SELECT * FROM services WHERE id = ?");
     $stmt->execute([$id]);

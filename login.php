@@ -1,25 +1,17 @@
 <?php
-// salon/login.php — страница входа в аккаунт
-// Включаем вывод ошибок для отладки (уберите в проде)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-// Стартуем сессию, чтобы почистить старые данные
+
 session_start();
-// Удаляем предыдущие данные сессии и куки
 session_unset();
 session_destroy();
 if (isset($_COOKIE[session_name()])) {
     setcookie(session_name(), '', time() - 3600, '/');
 }
-
-// Запускаем новую сессию
 session_start();
 
-require_once __DIR__ . '/db.php';  // подключение к БД
+require_once __DIR__ . '/db.php';  
 
-// Если уже авторизован, перенаправляем на соответствующий кабинет
+
 if (!empty($_SESSION['user'])) {
     $role = $_SESSION['user']['role_id'];
     switch ($role) {
@@ -85,6 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="/salon/css/pages/login.css"/>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html">Главная</a> |
+      <a href="login.php">Войти</a> |
+      <a href="register.php">Регистрация</a>
+    </nav>
+  </header>
+
   <div class="login-container">
     <h1>Вход в аккаунт</h1>
     <?php if ($error): ?>

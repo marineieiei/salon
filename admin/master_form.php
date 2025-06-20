@@ -1,5 +1,4 @@
 <?php
-// salon/admin/master_form.php
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';
@@ -12,7 +11,6 @@ $error  = '';
 
 // --- 1) При редактировании подгружаем существующие данные ---
 if ($isEdit) {
-    // 1.1) Основные поля из users
     $stmt = $pdo->prepare("SELECT id, name, phone, photo_path FROM users WHERE id = ? AND role_id = 2");
     $stmt->execute([$id]);
     $master = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -20,8 +18,6 @@ if ($isEdit) {
         header('Location: masters.php');
         exit;
     }
-
-    // 1.2) Расписание из schedules
     $stmt2 = $pdo->prepare("
       SELECT day_of_week, start_time, end_time
         FROM schedules
@@ -35,7 +31,7 @@ if ($isEdit) {
     $timeTo   = $rows[0]['end_time']   ?? '';
 }
 
-// --- 2) Обработка сабмита ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['name'] ?? '');
     $phone    = trim($_POST['phone'] ?? '');
@@ -44,19 +40,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $timeFrom = $_POST['time_from'] ?? '';
     $timeTo   = $_POST['time_to']   ?? '';
 
-    // 2.1) Базовая валидация обязательных полей
     if ($name === '' || $phone === '') {
         $error = 'Имя и телефон обязательны.';
     }
-    // 2.2) Проверка формата имени: должно быть минимум два слова
     elseif (!preg_match('/^\S+\s+\S+/u', $name)) {
         $error = 'Имя должно состоять как минимум из двух слов.';
     }
-    // 2.3) Телефон: 9 цифр и начинается с 0
     elseif (!preg_match('/^0\d{8}$/', $phone)) {
         $error = 'Телефон в формате 0XXXXXXXX (9 цифр).';
     }
-    // 2.4) Пароль (при создании обязательно; при редактировании — только если передан)
     elseif ((!$isEdit && $password === '')
          || ($password !== '' && !preg_match('/^(?=.*[A-Za-z])(?=.*\d).{8,}$/', $password))
     ) {
@@ -79,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // --- если ошибок нет, сохраняем ---
     if ($error === '') {
-        // 2.7) Загрузка / сохранение фото
         $photoPath = $master['photo_path'] ?? null;
         if (!empty($_FILES['photo']['tmp_name'])) {
             $up  = $_FILES['photo'];
@@ -92,8 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 error_log("Не удалось переместить файл в $targetDir");
             }
         }
-
-        // 2.8) Сохранение в users
         $fields = ['name = ?', 'phone = ?', 'photo_path = ?'];
         $params = [$name, $phone, $photoPath];
         if (!$isEdit) {

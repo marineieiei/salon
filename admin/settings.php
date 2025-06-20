@@ -15,7 +15,7 @@ $success         = '';
 $admin_error     = '';
 $admin_success   = '';
 
-// --- 1) Убедимся, что таблица settings существует ---
+
 $pdo->exec(
   "CREATE TABLE IF NOT EXISTS settings (
      `key` VARCHAR(50) PRIMARY KEY,

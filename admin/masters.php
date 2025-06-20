@@ -1,18 +1,14 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// salon/admin/masters.php
+
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';
 requireLogin();
-requireRole(1); // админ
+requireRole(1); 
 
-// 1) поиск
 $q = trim($_GET['q'] ?? '');
 
-// 2) получаем мастеров
+
 $sql = "SELECT id, name, phone, photo_path FROM users WHERE role_id = 2";
 $params = [];
 if ($q !== '') {

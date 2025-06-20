@@ -1,10 +1,9 @@
 <?php
-// admin/dashboard.php
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';
 requireLogin();
-requireRole(1); // роль «админ»
+requireRole(1); 
 
 // --- Статистика: кол-во мастеров и клиентов ---
 $totals = $pdo->query("

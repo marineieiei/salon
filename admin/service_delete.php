@@ -25,7 +25,7 @@ if ($isUsed) {
     exit;
 }
 
-// Удаление
+
 $stmt = $pdo->prepare("DELETE FROM services WHERE id = ?");
 $stmt->execute([$id]);
 

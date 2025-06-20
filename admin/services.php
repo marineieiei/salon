@@ -1,5 +1,4 @@
 <?php
-// salon/admin/services.php
 session_start();
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../includes/auth.php';

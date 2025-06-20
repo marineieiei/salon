@@ -1,13 +1,9 @@
 <?php
-// database.php — подключение к БД
-
 $host     = 'localhost';
-$dbname   = 'salon';  // имя БД, маленькими буквами — потом в DSN тоже $dbname
-$user     = 'root';   // твой MySQL-пользователь
-$password = '';       // твой MySQL-пароль
-
+$dbname   = 'salon';  
+$user     = 'root';  
+$password = '';       
 $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8mb4";
-
 try {
     $pdo = new PDO(
         $dsn,

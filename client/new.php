@@ -1,8 +1,4 @@
 <?php
-// client/new.php
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(E_ALL);
 
 session_start();
 require_once __DIR__ . '/../db.php';
@@ -10,7 +6,7 @@ require_once __DIR__ . '/../includes/auth.php';
 requireLogin();
 requireRole(3);
 
-// 0) Подготовка мастеров и услуг
+
 $masters = $pdo
   ->query("SELECT id, name FROM users WHERE role_id = 2")
   ->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +14,6 @@ $masters = $pdo
 $services = $pdo
   ->query("SELECT id, title, duration_minutes FROM services ORDER BY title")
   ->fetchAll(PDO::FETCH_ASSOC);
-
-// 1) Обработка окончательного POST (только когда выбрано время)
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['time'])) {
   $m_id = (int)($_POST['master_id']  ?? 0);
@@ -27,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['time'])) {
   $date = $_POST['date']            ?? '';
   $time = $_POST['time']            ?? '';
 
-  // Проверим, что всё есть
+
   if (!$m_id || !$s_id || !$date || !$time) {
     $error = 'Ошибка: недостающие данные для записи.';
   } else {
@@ -38,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['time'])) {
 
     $start = new DateTime("$date $time");
     $end   = (clone $start)->add(new DateInterval("PT{$duration}M"));
-
-    // проверка коллизии
     $chk = $pdo->prepare("
       SELECT COUNT(*) FROM appointments
        WHERE master_id=?
@@ -56,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['time'])) {
     if ($chk->fetchColumn() > 0) {
       $error = 'Мастер уже занят в этот интервал.';
     } else {
-      // вставка
       $ins = $pdo->prepare("
         INSERT INTO appointments
           (client_id,master_id,service_id,start_datetime,end_datetime,status,created_at)
@@ -75,20 +66,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['time'])) {
   }
 }
 
-// 2) Какие GET-параметры уже выбраны?
 $selMaster  = (int)($_GET['master_id']  ?? 0);
 $selDate    = $_GET['date']             ?? '';
 $selService = (int)($_GET['service_id'] ?? 0);
 
-// 3) Если выбраны мастер+дата+услуга — генерим доступные слоты
+
 $timeslots = [];
 if ($selMaster && $selDate && $selService) {
-  // длительность
   $stmtD = $pdo->prepare("SELECT duration_minutes FROM services WHERE id=?");
   $stmtD->execute([$selService]);
   $duration = (int)$stmtD->fetchColumn();
-
-  // расписание этого мастера в день недели
   $dow = (new DateTime($selDate))->format('N');
   $stmtS = $pdo->prepare("
     SELECT start_time,end_time FROM schedules
@@ -96,19 +83,14 @@ if ($selMaster && $selDate && $selService) {
   ");
   $stmtS->execute([$selMaster,$dow]);
   $schedule = $stmtS->fetchAll(PDO::FETCH_ASSOC);
-
-  // уже занятые
   $stmtA = $pdo->prepare("
     SELECT start_datetime,end_datetime FROM appointments
      WHERE master_id=? AND DATE(start_datetime)=? AND status!='cancel'
   ");
   $stmtA->execute([$selMaster,$selDate]);
   $busy = $stmtA->fetchAll(PDO::FETCH_ASSOC);
-
-  // шаг 1 час
   $step   = new DateInterval('PT1H');
   $durInt = new DateInterval("PT{$duration}M");
-
   foreach ($schedule as $seg) {
     $cursor   = new DateTime("{$selDate} {$seg['start_time']}");
     $endSched = new DateTime("{$selDate} {$seg['end_time']}");
@@ -118,7 +100,6 @@ if ($selMaster && $selDate && $selService) {
       $s = clone $cursor;
       $e = (clone $cursor)->add($durInt);
 
-      // проверяем на свободность
       $free = true;
       foreach ($busy as $b) {
         $bS = new DateTime($b['start_datetime']);
@@ -162,7 +143,7 @@ if ($selMaster && $selDate && $selService) {
       <div class="error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <!-- Шаги через GET -->
+
     <form method="get" class="step-form">
       <label for="master">1. Мастер</label>
       <select id="master" name="master_id" onchange="this.form.submit()">
@@ -196,31 +177,34 @@ if ($selMaster && $selDate && $selService) {
     </form>
 
     <!-- Финальный POST-шаг -->
-    <?php if($selMaster && $selDate && $selService): ?>
-      <?php if(empty($timeslots)): ?>
-        <p class="no-slots">
-          Свободных слотов нет.
-          <a href="new.php" class="back-link">← Выбрать другую дату</a>
-        </p>
-      <?php else: ?>
-        <form method="post" class="step-form">
-          <input type="hidden" name="master_id"  value="<?=$selMaster?>">
-          <input type="hidden" name="date"       value="<?=$selDate?>">
-          <input type="hidden" name="service_id" value="<?=$selService?>">
+<?php if($selMaster && $selDate && $selService): ?>
+  <form method="post" class="step-form">
+    <input type="hidden" name="master_id"  value="<?=$selMaster?>">
+    <input type="hidden" name="date"       value="<?=$selDate?>">
+    <input type="hidden" name="service_id" value="<?=$selService?>">
 
-          <label for="time">4. Время</label>
-          <select id="time" name="time">
-            <?php foreach($timeslots as $t): ?>
-              <option><?= $t ?></option>
-            <?php endforeach; ?>
-          </select>
+    <label for="time">4. Время</label>
 
-          <div class="buttons-row">
-            <button type="submit" class="btn btn-primary">Подтвердить</button>
-          </div>
-        </form>
-      <?php endif; ?>
+    <?php if(empty($timeslots)): ?>
+      <select id="time" name="time" disabled>
+        <option>Свободных слотов нет</option>
+      </select>
+      <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--color-text-secondary);">
+        Выберите другую дату
+      </p>
+    <?php else: ?>
+      <select id="time" name="time">
+        <?php foreach($timeslots as $t): ?>
+          <option><?= htmlspecialchars($t) ?></option>
+        <?php endforeach; ?>
+      </select>
+
+      <div class="buttons-row">
+        <button type="submit" class="btn btn-primary">Подтвердить</button>
+      </div>
     <?php endif; ?>
+  </form>
+<?php endif; ?>
 
     <!-- Постоянная ссылка назад -->
     <p><a href="appointment.php" class="back-link">← К моим записям</a></p>
